@@ -1,3 +1,6 @@
+import axios from 'axios'
+import { Move, PokeAPIResponse } from '../interfaces/pokeapi-response.interface'
+
 export class Pokemon {
 /*  
   public id: number;
@@ -25,16 +28,27 @@ this.id = id;
     console.log(this.name + ' , ' + this.name)
   }
 
-  getMoves() {
-    return 10
+  async getMoves(): Promise<Move[]> {
+    const {
+      data
+    } = await axios.get<PokeAPIResponse>('https://pokeapi.co/api/v2/pokemon/4')
+    data.moves.forEach((element: any) => {
+      console.log(element)
+    });
+    console.log(data.moves[0].move.name.toUpperCase())
+
+    return data.moves
   }
 
 }
 
 export const charmander = new Pokemon(1,'Charmander')
 
-
-
+/* console.log(charmander.getMoves()) */
+charmander.getMoves()
+/**
+ * clase 10
+ */
 
 /* 
 charmander.id = 10; */

@@ -2,20 +2,22 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
+
+import { charmander } from './bases/04-inyection.ts'
+
+/* 
 import { bulbasaur, pokemonsIds , pokemons } from './bases/02-object.ts'
-import { charmander } from './bases/03-classes.ts'
-pokemons.forEach(key => {
+import { charmander } from './bases/03-classes.ts' */
+/*
+ pokemons.forEach(key => {
   console.log(key)
 })
 
-console.log(charmander)
+console.log(charmander) */
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-  <p>${pokemons.join(' , ')}</p>
   <h1>${charmander.name + ' ' +  charmander.id}</h1>
-  <p>${pokemonsIds.join(', ')}</p>
-  <p>${bulbasaur.name}</p>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
     </a>
