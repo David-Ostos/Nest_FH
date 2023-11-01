@@ -29,9 +29,9 @@ export class PokeApiAdapter implements HttpAdapter {
     return data;
   }
 
-  async post(url: string, data: any) {}
+/*   async post(url: string, data: any) {}
 
   async patch(url: string, data: any) {}
 
-  async delete(url: string) {}
+  async delete(url: string) {} */
 }

@@ -3,13 +3,15 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 
-import { charmander } from './bases/04-inyection.ts'
+import { charmander } from './bases/06-decorator2.ts'
 
 /* 
+import { charmander } from './bases/05-decoretors.ts'
 import { bulbasaur, pokemonsIds , pokemons } from './bases/02-object.ts'
+import { charmander } from './bases/04-inyection.ts'
 import { charmander } from './bases/03-classes.ts' */
 /*
- pokemons.forEach(key => {
+pokemons.forEach(key => {
   console.log(key)
 })
 
