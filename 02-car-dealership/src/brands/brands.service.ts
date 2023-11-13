@@ -66,4 +66,9 @@ export class BrandsService {
 
     return { message: `this brand with id: ${ id } has been removed` };
   }
+
+  fillBrandsWithSeedData (brands: Brand[]) {
+    this.brands = brands;
+  }
+
 }

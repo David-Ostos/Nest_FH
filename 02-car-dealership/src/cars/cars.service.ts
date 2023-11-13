@@ -60,4 +60,9 @@ export class CarsService {
 
     return { message: `the car with id: ${id} has been deleted.` };
   }
+
+  fillCarsWithSeedData (cars: Car[]) {
+    this.cars = cars;
+  }
+
 }
