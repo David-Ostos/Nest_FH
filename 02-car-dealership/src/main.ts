@@ -13,7 +13,9 @@ async function bootstrap () {
   );
 
   const server = await app.listen(3000);
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   server;
   console.log(`http://localhost:${server.address().port}}`);
 }
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 bootstrap();
