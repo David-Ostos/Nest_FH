@@ -4,6 +4,7 @@ import { Model, isValidObjectId } from 'mongoose';
 
 import { Pokemon } from './entities/pokemon.entity';
 import { type CreatePokemonDto, type UpdatePokemonDto } from './dto';
+import { type PaginationDto } from '../common/dto/pagination.dto';
 
 @Injectable()
 export class PokemonService {
@@ -32,8 +33,20 @@ export class PokemonService {
     }
   }
 
-  async findAll () {
-    return await this.pokemonModel.find();
+  async findAll ( PaginationDto: PaginationDto ) {
+
+    const {
+      limit = 10,
+      offset = 0
+    } = PaginationDto;
+
+    return await this.pokemonModel.find()
+      .limit( limit )
+      .skip( offset )
+      .sort({
+        no: 1
+      })
+      .select('-__v');
   }
 
   async findOne (term: string) {
@@ -42,17 +55,17 @@ export class PokemonService {
 
     // no
     if ( !isNaN(+term) ) {
-      pokemon = await this.pokemonModel.findOne({ no: term });
+      pokemon = await this.pokemonModel.findOne({ no: term }).select('-__v');
     }
 
     // mongoID
     if ( !pokemon && isValidObjectId( term ) ) {
-      pokemon = await this.pokemonModel.findById( term );
+      pokemon = await this.pokemonModel.findById( term ).select('-__v');
     }
 
     // Name
     if ( !pokemon ) {
-      pokemon = await this.pokemonModel.findOne({ name: term.toLocaleLowerCase().trim() });
+      pokemon = await this.pokemonModel.findOne({ name: term.toLocaleLowerCase().trim() }).select('-__v');
     }
 
     // Not Found

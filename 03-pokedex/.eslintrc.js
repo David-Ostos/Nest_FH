@@ -28,5 +28,6 @@ module.exports = {
     'space-in-parens': 'off',
     'template-curly-spacing': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
+    '@typescript-eslint/method-signature-style': 'off',
   },
 };
